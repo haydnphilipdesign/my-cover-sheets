@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - PA Real Estate Support</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .thank-you-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+        }
+        
+        h1 {
+            color: #333;
+            margin: 20px 0;
+            font-size: 28px;
+            font-weight: 300;
+        }
+        
+        .property-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .property-info h3 {
+            margin: 0 0 10px 0;
+            color: #667eea;
+            font-size: 18px;
+        }
+        
+        .property-details {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .message {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+        
+        .next-steps {
+            background: #e8f4fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .next-steps h3 {
+            margin: 0 0 15px 0;
+            color: #3498db;
+            font-size: 18px;
+        }
+        
+        .next-steps ul {
+            text-align: left;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #777;
+            font-size: 14px;
+        }
+        
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .error-message {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .error-message h3 {
+            color: #856404;
+            margin: 0 0 10px 0;
+        }
+        
+        .website-link {
+            margin-top: 30px;
+        }
+        
+        .website-link a {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .website-link a:hover {
+            background: #5a6fd8;
+        }
+        
+        @media (max-width: 600px) {
+            .thank-you-container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .success-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="success-icon">✓</div>
+        
+        <h1>Thank You!</h1>
+        
+        <div class="property-info" id="propertyInfo" style="display: none;">
+            <h3>Transaction Submitted</h3>
+            <div class="property-details">
+                <strong id="propertyAddress">Property Address</strong><br>
+                Agent: <span id="agentName">Agent Name</span>
+            </div>
+        </div>
+        
+        <div class="message">
+            Your transaction information has been successfully submitted and is being processed by our team.
+        </div>
+        
+        <div class="next-steps">
+            <h3>What Happens Next?</h3>
+            <ul>
+                <li>Your information has been automatically forwarded to our processing team</li>
+                <li>A cover sheet has been generated with your transaction details</li>
+                <li>You will be contacted within 1 business day if any additional information is needed</li>
+                <li>All transaction documents will be prepared according to your specifications</li>
+            </ul>
+        </div>
+        
+        <div class="error-message" id="errorMessage" style="display: none;">
+            <h3>Processing Note</h3>
+            <p>Your submission was received successfully. Our team will review your information and contact you if needed.</p>
+        </div>
+        
+        <div class="contact-info">
+            <strong>Questions?</strong><br>
+            Contact us at <a href="mailto:info@parealestatesupport.com">info@parealestatesupport.com</a><br>
+            or call <strong>(570) 555-0123</strong>
+        </div>
+        
+        <div class="website-link">
+            <a href="https://www.parealestatesupport.com">Return to PA Real Estate Support</a>
+        </div>
+    </div>
+
+    <script>
+        // Parse URL parameters to personalize the thank you message
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+        
+        // Display property and agent info if available
+        const propertyAddress = getUrlParameter('property');
+        const agentName = getUrlParameter('agent');
+        const error = getUrlParameter('error');
+        
+        if (propertyAddress && agentName) {
+            document.getElementById('propertyAddress').textContent = propertyAddress;
+            document.getElementById('agentName').textContent = agentName;
+            document.getElementById('propertyInfo').style.display = 'block';
+        }
+        
+        // Show error message if there was a processing issue
+        if (error === 'processing') {
+            document.getElementById('errorMessage').style.display = 'block';
+        }
+        
+        // Add some animation
+        setTimeout(() => {
+            const container = document.querySelector('.thank-you-container');
+            container.style.transform = 'scale(1)';
+            container.style.opacity = '1';
+        }, 100);
+        
+        // Auto-redirect after 30 seconds (optional)
+        setTimeout(() => {
+            const redirectMsg = document.createElement('div');
+            redirectMsg.style.marginTop = '20px';
+            redirectMsg.style.color = '#999';
+            redirectMsg.style.fontSize = '14px';
+            redirectMsg.innerHTML = 'Redirecting to main website in <span id="countdown">10</span> seconds...';
+            document.querySelector('.thank-you-container').appendChild(redirectMsg);
+            
+            let countdown = 10;
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                document.getElementById('countdown').textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = 'https://www.parealestatesupport.com';
+                }
+            }, 1000);
+        }, 20000); // Start countdown after 20 seconds
+    </script>
+</body>
+</html>

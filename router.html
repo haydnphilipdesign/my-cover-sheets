@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Sheet Router</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .loading {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading">
+        <div class="spinner"></div>
+        <h2>Routing to appropriate cover sheet...</h2>
+        <p id="status">Detecting agent role...</p>
+    </div>
+
+    <script>
+        // Function to get URL parameters
+        function getUrlParameters() {
+            const params = {};
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            for (const [key, value] of urlParams) {
+                params[key] = decodeURIComponent(value);
+            }
+            
+            return params;
+        }
+
+        // Main routing logic
+        function routeToCoverSheet() {
+            const params = getUrlParameters();
+            const statusElement = document.getElementById('status');
+            
+            // Get agent role from either field
+            const agentRole = params.q102_agentRole || params.q41_radio_41 || '';
+            
+            // Determine target form based on agent role
+            let targetForm = 'buyer.html'; // default
+            
+            if (agentRole.toLowerCase().includes('listing') || agentRole.toLowerCase().includes('seller')) {
+                targetForm = 'seller.html';
+                statusElement.textContent = 'Detected: Listing/Seller Agent';
+            } else if (agentRole.toLowerCase().includes('dual')) {
+                targetForm = 'dual.html';
+                statusElement.textContent = 'Detected: Dual Agent';
+            } else if (agentRole.toLowerCase().includes('buyer')) {
+                targetForm = 'buyer.html';
+                statusElement.textContent = 'Detected: Buyer\'s Agent';
+            } else {
+                statusElement.textContent = 'No role detected, defaulting to Buyer\'s Agent form';
+            }
+            
+            // Build redirect URL with all parameters
+            const baseUrl = window.location.origin + window.location.pathname.replace('router.html', '');
+            const redirectUrl = baseUrl + targetForm + window.location.search;
+            
+            // Log for debugging
+            console.log('Agent Role:', agentRole);
+            console.log('Target Form:', targetForm);
+            console.log('Redirecting to:', redirectUrl);
+            
+            // Redirect after short delay for user feedback
+            setTimeout(() => {
+                statusElement.textContent = 'Redirecting now...';
+                window.location.href = redirectUrl;
+            }, 1500);
+        }
+
+        // Handle errors
+        window.addEventListener('error', function(e) {
+            document.getElementById('status').textContent = 'Error: ' + e.message;
+        });
+
+        // Start routing when page loads
+        window.addEventListener('load', routeToCoverSheet);
+        
+        // Also provide manual override buttons
+        setTimeout(() => {
+            const loadingDiv = document.querySelector('.loading');
+            loadingDiv.innerHTML += `
+                <div style="margin-top: 30px; font-size: 12px; color: #666;">
+                    <p>Not redirecting? Choose manually:</p>
+                    <button onclick="window.location.href='buyer.html' + window.location.search">Buyer's Agent</button>
+                    <button onclick="window.location.href='dual.html' + window.location.search">Dual Agent</button>
+                    <button onclick="window.location.href='seller.html' + window.location.search">Listing Agent</button>
+                </div>
+            `;
+        }, 5000);
+    </script>
+</body>
+</html>
