@@ -1,0 +1,82 @@
+=== JOTFORM FIELD MAPPINGS FOR COVER SHEET ===
+
+1. PROPERTY INFORMATION:
+   - q2_textbox_2         -> Property Address
+   - q15_textbox_15       -> MLS Number
+   - q3_textbox_3         -> Sale Price (USD)
+
+2. AGENT INFORMATION:
+   - q58_agentName        -> Agent Name
+   - q60_agentPhone[full] -> Agent Phone Number  
+   - q59_agentEmail       -> Agent Email
+   - q41_radio_41         -> Agent Role (Buyer's Agent/Listing Agent/Dual Agent)
+   - q102_agentRole       -> Agent Role (for integration)
+
+3. FINANCIAL FIELDS:
+   - q3_textbox_3         -> Sale Price (USD)
+   - q16_textbox_16       -> Your Commission (%)
+   - q18_textbox_18       -> Cooperating Agent Commission (%)
+   - q20_textbox_20       -> Commission Paid to You by the Seller (%)
+   - q71_commissionPaid   -> Commission Paid to You by the Buyer (%)
+
+4. DATE FIELDS:
+   - q63_typeA63          -> Final Acceptance/Execution Date
+   - q103_executionDate   -> Execution Date (for integration)
+   - q73_closingDate      -> Closing Date
+   - q104_closingDate104  -> Closing Date (for integration)
+   - q55_datetime_55[year]-> Date (General form date)
+
+5. REFERRAL FIELDS:
+   - q23_textbox_23       -> Referring Party
+   - q25_textbox_25       -> Referral Fee (%)
+
+6. SELLER INFORMATION:
+   - q86_typeA86          -> How Many Sellers?
+   - q144_sellerName      -> Seller Name
+   - q145_sellerEmail     -> Seller Email
+   - q146_sellerPhone     -> Seller Phone
+   - q147_sellerAddress   -> Seller Address
+   - q111_seller1         -> Seller 1 Name
+   - q141_seller1141      -> Seller 1 Email
+   - q113_seller1113      -> Seller 1 Phone
+   - q114_seller1114      -> Seller 1 Address
+   - q120_seller2120      -> Seller 2 Name
+   - q137_seller2         -> Seller 2 Email
+   - q122_seller2122      -> Seller 2 Phone
+   - q123_seller2123      -> Seller 2 Address
+
+7. BUYER INFORMATION:
+   - q87_howMany          -> How Many Buyers?
+   - q153_sellerName153   -> Buyer Name (mislabeled as seller)
+   - q154_sellerEmail154  -> Buyer Email
+   - q155_sellerPhone155  -> Buyer Phone
+   - q156_sellerAddress156-> Buyer Address
+   - q158_seller1158      -> Buyer 1 Name
+   - q159_seller1159      -> Buyer 1 Email
+   - q160_seller1160      -> Buyer 1 Phone
+   - q161_seller1161      -> Buyer 1 Address
+   - q163_seller2163      -> Buyer 2 Name
+   - q164_seller2164      -> Buyer 2 Email
+   - q165_seller2165      -> Buyer 2 Phone
+   - q166_seller2166      -> Buyer 2 Address
+
+8. OTHER RELEVANT FIELDS:
+   - q107_updateMls       -> Update MLS (for integration)
+   - q28_textbox_28       -> Resale Cert Required? If YES, list name of HOA
+   - q29_textbox_29       -> C/O required? If YES, list the Township/Municipality
+   - q30_textbox_30       -> First Right of Refusal? If YES, list who
+   - q31_textbox_31       -> Is There Attorney Representation? If YES, list the Attorney's Name
+   - q32_textbox_32       -> Home Warranty Company
+   - q33_textbox_33       -> Warranty Cost
+   - q34_textbox_34       -> Warranty Paid By
+   - q35_textbox_35       -> Title Company
+   - q36_radio_36         -> TC Fee Paid By
+   - q38_radio_38         -> Access Information
+   - q39_textbox_39       -> Access Code
+   - q53_textarea_53      -> Additional Notes
+   - q54_textbox_54       -> Agent Signature (type full name)
+
+NOTES:
+- Fields for water source, septic type, deposits, seller assist, inspection date, and contingency date are NOT present in this form
+- Several buyer fields are mislabeled with "seller" in their field names
+- Some fields have duplicate versions for integration purposes (marked with "for integration")
