@@ -317,14 +317,14 @@
         <div class="main-content">
             <!-- Header -->
             <div class="header-row">
-                <span>PROPERTY: <input type="text" class="input-field" style="width: 320px;"></span>
-                <span>MLS# <input type="text" class="input-field" style="width: 130px;"></span>
-                <span>Agent: <input type="text" class="input-field" style="width: 180px;"></span>
+                <span>PROPERTY: <input type="text" class="input-field" style="width: 320px;" data-field="propertyAddress"></span>
+                <span>MLS# <input type="text" class="input-field" style="width: 130px;" data-field="mlsNumber"></span>
+                <span>Agent: <input type="text" class="input-field" style="width: 180px;" data-field="agentName"></span>
             </div>
 
         <div class="form-row-horizontal">
             <div class="left-content checklist-item">AOS  Check  SPD  PreQual  SEC/BEC  BAC  CN  KW Disc.  Wire Notice  HW  DN  DA  RLBPHD</div>
-            <div class="right-content bold">CLOSING DATE: <input type="text" class="input-field" style="width: 90px;"> Time: <input type="text" class="input-field" style="width: 60px;"></div>
+            <div class="right-content bold">CLOSING DATE: <input type="text" class="input-field" style="width: 90px;" data-field="closingDate"> Time: <input type="text" class="input-field" style="width: 60px;"></div>
         </div>
 
         <div class="form-row-horizontal">
@@ -534,52 +534,55 @@
         <div class="contract-section">
             <div class="grid-2col">
                 <div>
-                    <strong>CONTRACT DATE:</strong> <input type="text" class="input-field" style="width: 75px;">
-                    <strong style="margin-left: 8px;">Price:</strong> <input type="text" class="input-field" style="width: 75px;">
+                    <strong>CONTRACT DATE:</strong> <input type="text" class="input-field" style="width: 75px;" data-field="contractDate">
+                    <strong style="margin-left: 8px;">Price:</strong> <input type="text" class="input-field" style="width: 75px;" data-field="salePrice">
                 </div>
                 <div>
-                    <strong>ACCEPTANCE DATE:</strong> <input type="text" class="input-field" style="width: 75px;">
-                    <strong style="margin-left: 8px;">Commission:</strong> <input type="text" class="input-field" style="width: 75px;">
+                    <strong>ACCEPTANCE DATE:</strong> <input type="text" class="input-field" style="width: 75px;" data-field="acceptanceDate">
+                    <strong style="margin-left: 8px;">Commission:</strong> <input type="text" class="input-field" style="width: 75px;" data-field="totalCommissionToKW">
                 </div>
             </div>
             
             <div class="grid-2col" style="margin-top: 5px;">
                 <div>
-                    <strong>Inspection Date:</strong> <input type="text" class="input-field" style="width: 75px;">
-                    <strong style="margin-left: 8px;">Contingency Date:</strong> <input type="text" class="input-field" style="width: 75px;">
+                    <strong>Inspection Date:</strong> <input type="text" class="input-field" style="width: 75px;" data-field="inspectionDate">
+                    <strong style="margin-left: 8px;">Contingency Date:</strong> <input type="text" class="input-field" style="width: 75px;" data-field="contingencyDate">
                 </div>
                 <div>
                     <strong>Total Deposit:</strong> <input type="text" class="input-field" style="width: 75px;">
-                    <strong style="margin-left: 8px;">Referral Due:</strong> <input type="text" class="input-field" style="width: 30px;">%
+                    <strong style="margin-left: 8px;">Referral Due:</strong> <input type="text" class="input-field" style="width: 30px;" data-field="referralDuePercent">%
                 </div>
             </div>
             
             <div class="grid-2col" style="margin-top: 5px;">
                 <div>
-                    <strong>Referral Form:</strong> <input type="text" class="input-field" style="width: 100px;">
+                    <strong>Referral Form:</strong> <input type="text" class="input-field" style="width: 100px;" data-field="referralForm">
                 </div>
                 <div>
-                    <strong>Seller Asst:</strong> <input type="text" class="input-field" style="width: 140px;">
+                    <strong>Seller Asst:</strong> <input type="text" class="input-field" style="width: 140px;" data-field="sellersAssistant">
                 </div>
             </div>
             
             <div class="grid-2col" style="margin-top: 5px;">
                 <div>
                     <strong>Waste:</strong> 
-                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Septic</label>
-                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Cesspool</label>
-                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Comm.</label>
-                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Public</label>
+                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);" data-field="septicType" value="Septic"> Septic</label>
+                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);" data-field="septicType" value="Cesspool"> Cesspool</label>
+                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);" data-field="septicType" value="Comm"> Comm.</label>
+                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);" data-field="septicType" value="Public"> Public</label>
                 </div>
                 <div>
                     <strong>Water:</strong>
-                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Well</label>
-                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Comm</label>
-                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Public</label>
+                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);" data-field="waterSource" value="Well"> Well</label>
+                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);" data-field="waterSource" value="Comm"> Comm</label>
+                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);" data-field="waterSource" value="Public"> Public</label>
                 </div>
             </div>
         </div>
         </div>
     </div>
+    
+    <!-- Auto-population script -->
+    <script src="autopopulate.js"></script>
 </body>
 </html>

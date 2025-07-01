@@ -347,19 +347,19 @@
             <!-- Header -->
             <div class="header-row">
                 <span style="font-weight: bold; font-size: 12px;">LISTING AGENT</span>
-                <span>PROPERTY: <input type="text" class="input-field" style="width: 150px;"></span>
-                <span>MLS# <input type="text" class="input-field" style="width: 100px;"></span>
-                <span>AGENT: <input type="text" class="input-field" style="width: 130px;"></span>
+                <span>PROPERTY: <input type="text" class="input-field" style="width: 150px;" data-field="propertyAddress"></span>
+                <span>MLS# <input type="text" class="input-field" style="width: 100px;" data-field="mlsNumber"></span>
+                <span>AGENT: <input type="text" class="input-field" style="width: 130px;" data-field="agentName"></span>
             </div>
 
             <div class="form-row-horizontal">
                 <div class="left-content checklist-item">AOS Check SPD PreQual SEC Wire Notice HW Deed DA RLBPHD</div>
-                <div class="right-content section-header">CONTRACT DATE: <input type="text" class="input-field" style="width: 80px;"> Price: $<input type="text" class="input-field" style="width: 90px;"></div>
+                <div class="right-content section-header">CONTRACT DATE: <input type="text" class="input-field" style="width: 80px;" data-field="contractDate"> Price: $<input type="text" class="input-field" style="width: 90px;" data-field="salePrice"></div>
             </div>
 
             <div class="form-row-horizontal">
                 <div class="left-content checklist-item">KW Addendum signed: <input type="text" class="input-field" style="width: 50px;">Buyer <input type="text" class="input-field" style="width: 50px;">Seller <input type="text" class="input-field" style="width: 50px;">Agent</div>
-                <div class="right-content">ACCEPTANCE DATE: <input type="text" class="input-field" style="width: 80px;"> Commission: <input type="text" class="input-field" style="width: 50px;">%</div>
+                <div class="right-content">ACCEPTANCE DATE: <input type="text" class="input-field" style="width: 80px;" data-field="acceptanceDate"> Commission: <input type="text" class="input-field" style="width: 50px;">%</div>
             </div>
 
             <div class="form-row-horizontal">
@@ -534,27 +534,27 @@
             <div class="contract-section">
                 <div class="grid-2col">
                     <div>
-                        <strong>Referral Due:</strong> <input type="text" class="input-field" style="width: 30px;">% 
-                        <strong>Referral Form:</strong> <input type="text" class="input-field" style="width: 60px;">
+                        <strong>Referral Due:</strong> <input type="text" class="input-field" style="width: 30px;" data-field="referralDuePercent">% 
+                        <strong>Referral Form:</strong> <input type="text" class="input-field" style="width: 60px;" data-field="referralForm">
                     </div>
                     <div>
-                        <strong>*Seller Asst:</strong> <input type="text" class="input-field" style="width: 90px;">
+                        <strong>*Seller Asst:</strong> <input type="text" class="input-field" style="width: 90px;" data-field="sellersAssistant">
                     </div>
                 </div>
                 
                 <div class="grid-2col" style="margin-top: 5px;">
                     <div>
                         <strong>Waste:</strong> 
-                        <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Septic</label>
-                        <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Cesspool</label>
-                        <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Comm.</label>
-                        <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Public</label>
+                        <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);" data-field="septicType" value="Septic"> Septic</label>
+                        <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);" data-field="septicType" value="Cesspool"> Cesspool</label>
+                        <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);" data-field="septicType" value="Comm"> Comm.</label>
+                        <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);" data-field="septicType" value="Public"> Public</label>
                     </div>
                     <div>
                         <strong>Water:</strong>
-                        <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Well</label>
-                        <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Comm</label>
-                        <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Public</label>
+                        <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);" data-field="waterSource" value="Well"> Well</label>
+                        <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);" data-field="waterSource" value="Comm"> Comm</label>
+                        <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);" data-field="waterSource" value="Public"> Public</label>
                     </div>
                 </div>
 
@@ -574,5 +574,8 @@
             </div>
         </div>
     </div>
+    
+    <!-- Auto-population script -->
+    <script src="autopopulate.js"></script>
 </body>
 </html>
