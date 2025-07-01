@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Closing Checklist</title>
+    <style>
+        /* Updated: Removed horizontal gray lines, added vertical column divider and enhanced borders */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: black;
+            line-height: 1.2;
+            height: 100vh;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 0.25in 0.4in;
+            box-sizing: border-box;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid #000;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+        }
+        
+        .header-row {
+            background-color: #f0f0f0;
+            padding: 5px 7px;
+            border: 1px solid #000;
+            margin-bottom: 3px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 11px;
+        }
+        
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding: 3px 0;
+            min-height: auto;
+        }
+        
+        .form-row-horizontal {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 3px 0;
+            min-height: 18px;
+        }
+        
+        .form-row-horizontal.spaced {
+            padding: 5px 0;
+            margin: 2px 0;
+            min-height: 20px;
+        }
+        
+        .left-content {
+            flex: 1.1;
+            padding-right: 8px;
+            margin-right: 2px;
+        }
+        
+        .right-content {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .checklist-item {
+            padding: 3px 5px;
+            font-size: 10px;
+            line-height: 1.2;
+            margin-bottom: 1px;
+        }
+        
+        .checklist-item-small {
+            padding: 3px 5px;
+            font-size: 8px;
+            line-height: 1.4;
+            margin-bottom: 3px;
+        }
+        
+        .section-header {
+            background-color: #e0e0e0;
+            font-weight: bold;
+            padding: 3px 5px;
+            border: 1px solid #000;
+            border-radius: 2px;
+            margin: 3px 0 2px 0;
+            font-size: 10px;
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .input-field {
+            border: none;
+            border-bottom: 0.5px solid #000;
+            background: transparent;
+            padding: 1px;
+            font-size: 10px;
+            height: 12px;
+        }
+        
+        .checkbox-line {
+            margin: 1px 0;
+        }
+        
+        .underline {
+            border-bottom: 0.5px solid #000;
+            display: inline-block;
+            min-width: 30px;
+            margin: 0 1px;
+        }
+        
+        .contact-section {
+            background-color: #f5f5f5;
+            padding: 3px;
+            margin: 2px 0;
+            border: 0.5px solid #ccc;
+        }
+        
+        .contract-section {
+            background-color: #f8f8f8;
+            padding: 6px;
+            border: 2px solid #000;
+            border-radius: 3px;
+            margin-top: 6px;
+            font-size: 10px;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .bold {
+            font-weight: bold;
+        }
+        
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        
+        .grid-2col-right {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            margin: 2px 0;
+        }
+        
+        .compact-field {
+            font-size: 9px;
+            margin: 1px 0;
+        }
+        
+        /* Print-specific styles */
+        @media print {
+            body {
+                font-size: 10px;
+                margin: 0;
+                padding: 0;
+                line-height: 1.1;
+                height: 100vh;
+            }
+            
+            .container {
+                padding: 0.2in 0.25in;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                border: 1px solid #000;
+            }
+            
+            .main-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                flex: 1;
+            }
+            
+            .header-row {
+                background-color: #f0f0f0 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                page-break-inside: avoid;
+                font-size: 10px;
+                padding: 4px 5px;
+                margin-bottom: 3px;
+            }
+            
+            .section-header {
+                background-color: #e0e0e0 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                page-break-inside: avoid;
+                font-size: 9px;
+                padding: 2px 4px;
+                margin: 3px 0 2px 0;
+                border-radius: 1px;
+            }
+            
+            .contract-section {
+                background-color: #f8f8f8 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                page-break-inside: avoid;
+                font-size: 9px;
+                padding: 5px;
+                margin-top: 5px;
+                border: 1.5px solid #000;
+                border-radius: 2px;
+            }
+            
+            .form-row, .form-row-horizontal {
+                page-break-inside: avoid;
+                min-height: auto;
+                padding: 2px 0;
+                margin: 1px 0;
+            }
+            
+            .form-row-horizontal {
+                min-height: 16px;
+                padding: 2px 0;
+            }
+            
+            .form-row-horizontal.spaced {
+                padding: 3px 0;
+                margin: 1px 0;
+                min-height: 16px;
+            }
+            
+            .checklist-item {
+                font-size: 9px;
+                padding: 2px 3px;
+                line-height: 1.1;
+                margin-bottom: 1px;
+            }
+            
+            .checklist-item-small {
+                font-size: 7px;
+                padding: 2px 3px;
+                line-height: 1.3;
+                margin-bottom: 2px;
+            }
+            
+            .input-field {
+                font-size: 9px;
+                height: 10px;
+                padding: 0px;
+            }
+            
+            .left-content {
+                font-size: 9px;
+            }
+            
+            .right-content {
+                font-size: 9px;
+            }
+            
+            .grid-2col {
+                gap: 6px;
+                margin: 3px 0;
+            }
+            
+            .grid-2col-right {
+                gap: 4px;
+                margin: 1px 0;
+            }
+            
+            .compact-field {
+                font-size: 8px;
+                margin: 0px;
+            }
+            
+            /* Ensure page fits */
+            @page {
+                size: letter portrait;
+                margin: 0.15in 0.2in;
+            }
+        }
+        
+        /* Responsive adjustments for smaller screens */
+        @media screen and (max-width: 768px) {
+            .form-row-horizontal {
+                flex-direction: column;
+                gap: 4px;
+            }
+            
+            .header-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+            
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header-row">
+                <span>PROPERTY: <input type="text" class="input-field" style="width: 320px;"></span>
+                <span>MLS# <input type="text" class="input-field" style="width: 130px;"></span>
+                <span>Agent: <input type="text" class="input-field" style="width: 180px;"></span>
+            </div>
+
+        <div class="form-row-horizontal">
+            <div class="left-content checklist-item">AOS  Check  SPD  PreQual  SEC/BEC  BAC  CN  KW Disc.  Wire Notice  HW  DN  DA  RLBPHD</div>
+            <div class="right-content bold">CLOSING DATE: <input type="text" class="input-field" style="width: 90px;"> Time: <input type="text" class="input-field" style="width: 60px;"></div>
+        </div>
+
+        <div class="form-row-horizontal">
+            <div class="left-content checklist-item">____KW Addendum signed: ___Buyer ___Seller ___Agent</div>
+            <div class="right-content">Location: <input type="text" class="input-field" style="width: 140px;"></div>
+        </div>
+
+        <div class="form-row">
+            <div class="checklist-item">____file started ____submitted ____comm submitted Deed</div>
+        </div>
+
+        <div class="form-row-horizontal">
+            <div class="left-content checklist-item">File added to Pending Checklist ____ Date on Calendar ____</div>
+            <div class="right-content section-header">BUYER: <input type="text" class="input-field" style="width: 150px;"></div>
+        </div>
+
+        <!-- Checklist Items -->
+        <div class="form-row">
+            <div class="checklist-item">Tasks set up ____Pend MLS ____ Added to Showing Time ____</div>
+        </div>
+
+        <div class="form-row">
+            <div class="checklist-item">Inspection Instructions sent to Seller ____ Pass at gate ____</div>
+        </div>
+
+        <div class="form-row">
+            <div class="checklist-item">Dates Email, Insurance list, Inspectors list sent to Buyer</div>
+        </div>
+
+        <div class="form-row">
+            <div class="checklist-item">AOS - Copy to Client ___ Bank ___ Agent ___ Attorney ___</div>
+        </div>
+
+        <div class="form-row">
+            <div class="checklist-item">Short Sale - Pre HUD ___ Received ___ Approval ___</div>
+        </div>
+
+        <div class="form-row-horizontal">
+            <div class="left-content checklist-item">Follow up on Deposit ____ Mortgage Application & Appraisal ____</div>
+            <div class="right-content section-header">SELLER: <input type="text" class="input-field" style="width: 150px;"></div>
+        </div>
+
+        <div class="form-row">
+            <div class="checklist-item">_____ 1st Deposit received _____ 2nd Deposit received</div>
+        </div>
+
+        <div class="form-row">
+            <div class="checklist-item">Seller's Info / Deed Request / TC Invoice sent ____</div>
+        </div>
+
+        <div class="form-row">
+            <div class="checklist-item">Title Ordered / Buyer's Info / TC Invoice sent ____</div>
+        </div>
+
+        <div class="form-row">
+            <div class="checklist-item">Home Inspection Scheduled ____ House/Septic Ready ____</div>
+        </div>
+
+        <div class="form-row">
+            <div class="checklist-item">Sent Reminder   BRTI prepared / sent   CIT sent / signed</div>
+        </div>
+
+        <div class="form-row-horizontal">
+            <div class="left-content checklist-item">Inspection Reports received ____ sent to Client ____</div>
+            <div class="right-content section-header">TITLE AGENT:</div>
+        </div>
+
+        <!-- Contact Information Sections -->
+        <div class="form-row-horizontal spaced">
+            <div class="left-content checklist-item-small">Order Resale Cert. _______, Req. Pymt from Seller ______, Check Sent_______ <br>Copy to Title______, Copy to BA/Buyer ______ ROD signed________</div>
+            <div class="right-content">
+                <div class="grid-2col-right">
+                    <div class="compact-field">Phone: <input type="text" class="input-field" style="width: 80px;"></div>
+                    <div class="compact-field">Title/Deed: <input type="text" class="input-field" style="width: 70px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row-horizontal spaced">
+            <div class="left-content checklist-item-small">CO: Req Payment_________, Seller sent Check __________ <br>Inspection set ___________ Copy to Buyer___________</div>
+            <div class="right-content">
+                <div class="grid-2col-right">
+                    <div class="compact-field">Email: <input type="text" class="input-field" style="width: 90px;"></div>
+                    <div class="compact-field">KPSS ABA: <input type="text" class="input-field" style="width: 60px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row-horizontal spaced">
+            <div class="left-content checklist-item-small">Appraisal: Ordered _____ Scheduled _____ Value ok? ________ <br>Repairs?: ______ Completed_____ Notified Appraiser _________</div>
+            <div class="right-content">
+                <div style="font-size: 10px;"><strong>HOA</strong></div>
+                <div class="grid-2col-right">
+                    <div class="compact-field">Pymt Req: <input type="text" class="input-field" style="width: 60px;"></div>
+                    <div class="compact-field">Seller Ck: <input type="text" class="input-field" style="width: 60px;"></div>
+                </div>
+                <div class="compact-field">Resale Received: <input type="text" class="input-field" style="width: 80px;"></div>
+            </div>
+        </div>
+
+        <div class="form-row-horizontal">
+            <div class="left-content checklist-item">Mortgage Commitment:    Requested  ______       Received ______</div>
+            <div class="right-content">
+                <div style="font-size: 10px;"><strong>CO</strong></div>
+                <div class="grid-2col-right">
+                    <div class="compact-field">Form sent: <input type="text" class="input-field" style="width: 60px;"></div>
+                    <div class="compact-field">Check Sent: <input type="text" class="input-field" style="width: 60px;"></div>
+                </div>
+                <div class="grid-2col-right">
+                    <div class="compact-field">Inspection: <input type="text" class="input-field" style="width: 60px;"></div>
+                    <div class="compact-field">Received: <input type="text" class="input-field" style="width: 60px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="checklist-item">Warranty - Ordered _____       Invoice sent to title company _____</div>
+        </div>
+
+        <div class="form-row-horizontal">
+            <div class="left-content checklist-item">Follow up on BRTI repairs, request receipts, request utility info</div>
+            <div class="right-content section-header">LENDER: <input type="text" class="input-field" style="width: 100px;"></div>
+        </div>
+
+        <div class="form-row-horizontal">
+            <div class="left-content checklist-item">Repairs finished_____       Receipts received _____</div>
+            <div class="right-content">
+                <div class="grid-2col-right">
+                    <div class="compact-field">Appraiser: <input type="text" class="input-field" style="width: 80px;"></div>
+                    <div class="compact-field">Loan Type: <input type="text" class="input-field" style="width: 70px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row-horizontal">
+            <div class="left-content checklist-item">Seller Attending ______ Closing via Mail? _____Docs sent? ________</div>
+            <div class="right-content">
+                <div class="grid-2col-right">
+                    <div class="compact-field">Email: <input type="text" class="input-field" style="width: 90px;"></div>
+                    <div class="compact-field">Phone: <input type="text" class="input-field" style="width: 80px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row-horizontal">
+            <div class="left-content checklist-item">Requested Escrow Check _____    Confirmed Receipt _____</div>
+            <div class="right-content">
+                <div class="grid-2col-right">
+                    <div class="compact-field">Appraisal Date: <input type="text" class="input-field" style="width: 70px;"></div>
+                    <div class="compact-field">Commit Due: <input type="text" class="input-field" style="width: 70px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="checklist-item">Utility info Received ______        Forwarded complete Utility Info ______</div>
+        </div>
+
+        <div class="form-row-horizontal">
+            <div class="left-content checklist-item">Clear to Close _____   Sent Request to Schedule Closing _____ </div>
+            <div class="right-content section-header">INSPECTOR:</div>
+        </div>
+
+        <div class="form-row-horizontal">
+            <div class="left-content checklist-item">Settlement Notice:  _____LA     _____Seller     _____Buyer     _____BA</div>
+            <div class="right-content">
+                <div class="compact-field">Inspector Name: <input type="text" class="input-field" style="width: 100px;"></div>
+                <div class="compact-field">Pass at HOA Gate: <input type="text" class="input-field" style="width: 80px;"></div>
+            </div>
+        </div>
+
+        <div class="form-row-horizontal">
+            <div class="left-content checklist-item">PSW Report & Settlement Info Sheet prepared</div>
+            <div class="right-content">
+                <div class="grid-2col-right">
+                    <div class="compact-field">Inspection Date: <input type="text" class="input-field" style="width: 70px;"></div>
+                    <div class="compact-field">Contingency: <input type="text" class="input-field" style="width: 70px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row-horizontal">
+            <div class="left-content checklist-item">Walkthrough Scheduled: <input type="text" class="input-field" style="width: 90px;"> Con. Room ______</div>
+            <div class="right-content">
+            </div>
+        </div>
+
+        <div class="form-row-horizontal">
+            <div class="left-content checklist-item">HUD Requested: ____   HUD Reviewed: ____  HUD shared: ____</div>
+            <div class="right-content">
+            </div>
+        </div>
+
+        <div class="form-row-horizontal">
+            <div class="left-content checklist-item">Signed HUD _____Comm Ck copy: _____ Comm submitted_____Closed MLS_____</div>
+            <div class="right-content">
+            </div>
+        </div>
+
+        <div class="form-row-horizontal">
+            <div class="left-content checklist-item">Signed HUD _____Comm Ck copy: _____ Comm submitted_____Closed MLS_____</div>
+            <div class="right-content">
+            </div>
+        </div>
+
+        <!-- Contract Information Section -->
+        <div class="contract-section">
+            <div class="grid-2col">
+                <div>
+                    <strong>CONTRACT DATE:</strong> <input type="text" class="input-field" style="width: 75px;">
+                    <strong style="margin-left: 8px;">Price:</strong> <input type="text" class="input-field" style="width: 75px;">
+                </div>
+                <div>
+                    <strong>ACCEPTANCE DATE:</strong> <input type="text" class="input-field" style="width: 75px;">
+                    <strong style="margin-left: 8px;">Commission:</strong> <input type="text" class="input-field" style="width: 75px;">
+                </div>
+            </div>
+            
+            <div class="grid-2col" style="margin-top: 5px;">
+                <div>
+                    <strong>Inspection Date:</strong> <input type="text" class="input-field" style="width: 75px;">
+                    <strong style="margin-left: 8px;">Contingency Date:</strong> <input type="text" class="input-field" style="width: 75px;">
+                </div>
+                <div>
+                    <strong>Total Deposit:</strong> <input type="text" class="input-field" style="width: 75px;">
+                    <strong style="margin-left: 8px;">Referral Due:</strong> <input type="text" class="input-field" style="width: 30px;">%
+                </div>
+            </div>
+            
+            <div class="grid-2col" style="margin-top: 5px;">
+                <div>
+                    <strong>Referral Form:</strong> <input type="text" class="input-field" style="width: 100px;">
+                </div>
+                <div>
+                    <strong>Seller Asst:</strong> <input type="text" class="input-field" style="width: 140px;">
+                </div>
+            </div>
+            
+            <div class="grid-2col" style="margin-top: 5px;">
+                <div>
+                    <strong>Waste:</strong> 
+                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Septic</label>
+                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Cesspool</label>
+                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Comm.</label>
+                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Public</label>
+                </div>
+                <div>
+                    <strong>Water:</strong>
+                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Well</label>
+                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Comm</label>
+                    <label style="font-size: 9px;"><input type="checkbox" style="transform: scale(0.8);"> Public</label>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
