@@ -1,0 +1,84 @@
+JotForm Auto-Population Sample URLs
+=====================================
+
+BUYER FORM SAMPLES:
+-------------------
+
+Basic buyer form:
+buyer.html?propertyAddress=123%20Main%20Street&mlsNumber=ML12345&agentName=John%20Doe&salePrice=450000
+
+Full buyer form with all fields:
+buyer.html?propertyAddress=789%20Pine%20Street&mlsNumber=ML67890&agentName=Jane%20Smith&contractDate=2024-01-15&salePrice=525000&acceptanceDate=2024-01-16&inspectionDate=2024-01-22&contingencyDate=2024-02-05&depositAmount=25000&commissionSeller=3%25&commissionBuyer=2.5%25&sellersAssistant=5000&totalCommissionToKW=4500&referralDuePercent=10&referralTo=ABC%20Realty&referralForm=Yes&closingDate=2024-03-01&hoaGatePass=ABC123&listingAgentPhone=555-123-4567&listingAgentEmail=agent@example.com&septicType=Public&waterSource=Public
+
+DUAL FORM SAMPLES:
+------------------
+
+Basic dual form:
+dual.html?propertyAddress=456%20Oak%20Avenue&mlsNumber=ML54321&agentName=Bob%20Wilson&contractDate=2024-02-01&salePrice=375000
+
+Full dual form:
+dual.html?propertyAddress=321%20Elm%20Drive&mlsNumber=ML98765&agentName=Sarah%20Davis&contractDate=2024-02-01&salePrice=375000&acceptanceDate=2024-02-02&inspectionDate=2024-02-08&contingencyDate=2024-02-22&sellersAssistant=3000&totalCommissionToKW=3500&referralDuePercent=15&referralForm=Yes&closingDate=2024-03-15&septicType=Septic,Comm&waterSource=Well
+
+SELLER FORM SAMPLES:
+--------------------
+
+Basic seller form:
+seller.html?propertyAddress=654%20Maple%20Lane&mlsNumber=ML11111&agentName=Mike%20Johnson&contractDate=2024-01-20&salePrice=600000
+
+Full seller form:
+seller.html?propertyAddress=987%20Cedar%20Court&mlsNumber=ML22222&agentName=Lisa%20Brown&contractDate=2024-01-20&salePrice=600000&acceptanceDate=2024-01-21&sellersAssistant=8000&referralDuePercent=12&referralForm=Yes&septicType=Cesspool&waterSource=Comm,Public
+
+CHECKBOX FIELD EXAMPLES:
+-------------------------
+
+Single checkbox selection:
+?septicType=Septic&waterSource=Well
+
+Multiple checkbox selections:
+?septicType=Septic,Public&waterSource=Well,Public
+
+All checkbox options:
+?septicType=Septic,Cesspool,Comm,Public&waterSource=Well,Comm,Public
+
+FIELD MAPPINGS:
+---------------
+
+Common Fields (all forms):
+- propertyAddress → PROPERTY input
+- mlsNumber → MLS# input  
+- agentName → Agent input
+- contractDate → CONTRACT DATE input
+- salePrice → Price/PRICE input
+- acceptanceDate → ACCEPTANCE DATE input
+- sellersAssistant → SELLER'S ASSIST input
+- referralDuePercent → Referral Due input
+- referralForm → Referral Form input
+- septicType → Septic checkboxes (Septic,Cesspool,Comm,Public)
+- waterSource → Water checkboxes (Well,Comm,Public)
+
+Buyer-Specific Fields:
+- inspectionDate → Inspection Date input
+- contingencyDate → Contingency Date input  
+- depositAmount → DEPOSIT input
+- commissionSeller → Commission Paid by Seller input
+- commissionBuyer → Commission Paid by Buyer input
+- totalCommissionToKW → Total Commission to KW input
+- referralTo → TO input
+- closingDate → CLOSING DATE input
+- hoaGatePass → Pass at HOA Gate input
+- listingAgentPhone → Phone (under Title Agent)
+- listingAgentEmail → Email (under Title Agent)
+
+Dual-Specific Fields:
+- inspectionDate → Inspection Date input
+- contingencyDate → Contingency Date input
+- totalCommissionToKW → Commission input
+- closingDate → CLOSING DATE input
+
+URL ENCODING NOTES:
+-------------------
+- Spaces: %20
+- Percent signs: %25  
+- Commas: %2C (for multiple checkbox values)
+- Ampersands: %26
+- Plus signs: %2B

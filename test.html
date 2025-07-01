@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-Population Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .test-result { margin: 10px 0; padding: 10px; background: #f5f5f5; }
+        input[type="text"] { margin: 5px; padding: 5px; }
+        input[type="checkbox"] { margin: 3px; }
+    </style>
+</head>
+<body>
+    <h1>JotForm Auto-Population Test</h1>
+    
+    <div class="test-section">
+        <h2>Test Fields</h2>
+        <p>Property: <input type="text" data-field="propertyAddress" placeholder="Should auto-populate"></p>
+        <p>MLS#: <input type="text" data-field="mlsNumber" placeholder="Should auto-populate"></p>
+        <p>Agent: <input type="text" data-field="agentName" placeholder="Should auto-populate"></p>
+        <p>Sale Price: <input type="text" data-field="salePrice" placeholder="Should auto-populate"></p>
+        
+        <h3>Septic Type (Checkboxes):</h3>
+        <label><input type="checkbox" data-field="septicType" value="Septic"> Septic</label>
+        <label><input type="checkbox" data-field="septicType" value="Cesspool"> Cesspool</label>
+        <label><input type="checkbox" data-field="septicType" value="Comm"> Comm</label>
+        <label><input type="checkbox" data-field="septicType" value="Public"> Public</label>
+        
+        <h3>Water Source (Checkboxes):</h3>
+        <label><input type="checkbox" data-field="waterSource" value="Well"> Well</label>
+        <label><input type="checkbox" data-field="waterSource" value="Comm"> Comm</label>
+        <label><input type="checkbox" data-field="waterSource" value="Public"> Public</label>
+    </div>
+    
+    <div class="test-section">
+        <h2>Sample Test URLs</h2>
+        <p><strong>Test URL 1 (Basic fields):</strong></p>
+        <code>test.html?propertyAddress=123%20Main%20Street&mlsNumber=ML12345&agentName=John%20Doe&salePrice=450000</code>
+        
+        <p><strong>Test URL 2 (With checkboxes):</strong></p>
+        <code>test.html?propertyAddress=456%20Oak%20Ave&septicType=Septic&waterSource=Well,Public</code>
+        
+        <p><strong>Test URL 3 (All buyer fields):</strong></p>
+        <code>test.html?propertyAddress=789%20Pine%20St&mlsNumber=ML67890&agentName=Jane%20Smith&contractDate=2024-01-15&salePrice=525000&acceptanceDate=2024-01-16&inspectionDate=2024-01-22&contingencyDate=2024-02-05&depositAmount=25000&commissionSeller=3%25&commissionBuyer=2.5%25&sellersAssistant=5000&totalCommissionToKW=4500&referralDuePercent=10&referralTo=ABC%20Realty&referralForm=Yes&closingDate=2024-03-01&hoaGatePass=ABC123&septicType=Public&waterSource=Public</code>
+    </div>
+    
+    <div class="test-result">
+        <h3>Test Results</h3>
+        <p>Check the browser console for auto-population logs.</p>
+        <p>If fields are populated correctly, the auto-population is working!</p>
+    </div>
+    
+    <script src="autopopulate.js"></script>
+</body>
+</html>
